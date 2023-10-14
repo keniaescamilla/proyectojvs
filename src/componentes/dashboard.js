@@ -1,6 +1,8 @@
 import React from 'react';
 import ProductList from './productList';
 import ProductForm from './ProductForm';
+import './App.css';
+//import 'tailwindcss/tailwind.css';
 
 function Dashboard() {
   return (

@@ -38,8 +38,9 @@
 }
 /* Dashboard Container */
 .Dashboard {
-  
-  background-color: #faabab;
+  align-content: center;
+ text-align: center;
+  background-color: #ffd6d6;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -49,6 +50,8 @@
 
 /* Dashboard Heading */
 .Dashboard h1 {
+  text-align: center;
+  text-align: center;
   font-size: 24px;
   color: #e0a3a3;
   margin-bottom: 20px;
@@ -114,4 +117,51 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+button{
+  background:#b15982;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1.0em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#ffc3df;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #ff4fb6;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+th{
+  color: #b15973;
+}
+tbody{
+  text-align: center;
+}
+img{
+  height: 400px;
+  
+
 }

@@ -1,39 +1,46 @@
 import React, { useState } from 'react';
-import './App.css';
+//import 'tailwindcss/tailwind.css';
+import'./App.css';
 
 function CrudComponent() {
   const [products, setProducts] = useState([
-    { id: 1, name: 'Producto A', price: 10 },
-    { id: 2, name: 'Producto B', price: 20 },
-    { id: 3, name: 'Producto C', price: 15 },
-    { id: 4, name: 'Producto C', price: 15 },
-    { id: 5, name: 'Producto C', price: 15 },
-    { id: 6, name: 'Producto C', price: 15 },
+    { id: 1, name: 'Pikachu', price: 10, description: 'blablalvlb', disponibilidad: 5 },
+    { id: 2, name: 'Producto B', price: 20, description: 'blaldj', disponibilidad: 10 },
+    { id: 3, name: 'Producto C', price: 15, description: 'Descripción de ccc', disponibilidad: 3 },
     // Otros productos...
   ]);
 
-  const [newProduct, setNewProduct] = useState({ id: '', name: '', price: '' });
+  const [newProduct, setNewProduct] = useState({
+    id: '',
+    name: '',
+    price: '',
+    description: '',
+    disponibilidad: '',
+  });
   const [isEditing, setIsEditing] = useState(false);
 
   const generateUniqueId = () => {
-    // Genera un ID único basado en el número de productos existentes
     return products.length + 1;
   };
 
   const addProduct = () => {
-    if (newProduct.name && newProduct.price) {
+    if (newProduct.name && newProduct.price && newProduct.description && newProduct.disponibilidad) {
       if (isEditing) {
-        // Modo de edición: Actualiza solo el producto editado
         const updatedProducts = products.map((product) =>
           product.id === newProduct.id ? newProduct : product
         );
         setProducts(updatedProducts);
       } else {
-        // Modo de adición: Agrega un nuevo producto con un ID único
         const newId = generateUniqueId();
         setProducts([...products, { id: newId, ...newProduct }]);
       }
-      setNewProduct({ id: '', name: '', price: '' });
+      setNewProduct({
+        id: '',
+        name: '',
+        price: '',
+        description: '',
+        disponibilidad: '',
+      });
       setIsEditing(false);
     }
   };
@@ -46,38 +53,56 @@ function CrudComponent() {
   const deleteProduct = (productId) => {
     const updatedProducts = products.filter((product) => product.id !== productId);
     setProducts(updatedProducts);
-    setNewProduct({ id: '', name: '', price: '' });
+    setNewProduct({
+      id: '',
+      name: '',
+      price: '',
+      description: '',
+      disponibilidad: '',
+    });
     setIsEditing(false);
   };
 
   return (
     <div className='Dashboard'>
-      <h2>Tienda ONLINE</h2>
-      <table>
+     <h1>Tienda onlinee</h1>
+      <br></br>
+      <table className='Dashboard'>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+            <th>ID </th>
+            <th> Nombre  </th>
+            <th> Precio </th>
+            <th> Descripción     </th>
+            <th> Disponibilidad </th>
+            <th> Acciones </th>
           </tr>
         </thead>
+        
         <tbody>
+          
           {products.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>${product.price}</td>
+              <td>{product.description}</td>
+              <td>{product.disponibilidad}</td>
               <td>
-                <button onClick={() => editProduct(product)}>Editar productito</button>
-                <button onClick={() => deleteProduct(product.id)}>Eliminar</button>
+                <button onClick={() => editProduct(product)}> Editar</button>
+                <button onClick={() => deleteProduct(product.id)}>Eliminar </button>
+               
               </td>
             </tr>
           ))}
+        
         </tbody>
+        
       </table>
       <div>
-        <h3>{isEditing ? 'Editar Producto' : 'Agregar Producto'}</h3>
+        <br></br>
+        <h3>{isEditing ? 'Editar Un Producto' : 'Agregar Un Producto'}</h3>
+        <br></br>
         <input
           type="text"
           placeholder="Nombre"
@@ -90,8 +115,23 @@ function CrudComponent() {
           value={newProduct.price}
           onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
         />
-        <button onClick={addProduct}>{isEditing ? 'Actualizar' : 'Agregar'}</button>
+        <input
+          type="text"
+          placeholder="Descripción"
+          value={newProduct.description}
+          onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="Disponibilidad"
+          value={newProduct.disponibilidad}
+          onChange={(e) => setNewProduct({ ...newProduct, disponibilidad: e.target.value })}
+        />
+        <br></br>
+        <br></br>
+        <button onClick={addProduct}>{isEditing ? 'Actualizar ^^' : 'Agregar^^'}</button>
       </div>
+      <img src='https://pngimg.es/d/cat_PNG50512.png'></img>
     </div>
   );
 }
