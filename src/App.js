@@ -5,8 +5,11 @@ import'./App.css';
 function CrudComponent() {
   const [products, setProducts] = useState([
     { id: 1, name: 'Pikachu', price: 10, description: 'blablalvlb', disponibilidad: 5 },
-    { id: 2, name: 'Producto B', price: 20, description: 'blaldj', disponibilidad: 10 },
-    { id: 3, name: 'Producto C', price: 15, description: 'Descripción de ccc', disponibilidad: 3 },
+    { id: 2, name: 'sopa', price: 20, description: 'blaldj', disponibilidad: 10 },
+    { id: 3, name: 'telefono', price: 15, description: 'jhdsj', disponibilidad: 3 },
+    { id: 4, name: 'Pikachu', price: 10, description: 'blablalvlb', disponibilidad: 5 },
+    { id: 5, name: 'dorilocos', price: 200, description: 'blaldj', disponibilidad: 10 },
+    { id: 6, name: 'atun lata', price: 1500, description: 'sdfsdc', disponibilidad: 3 },
     // Otros productos...
   ]);
 
@@ -97,7 +100,9 @@ function CrudComponent() {
           ))}
         
         </tbody>
-        
+        <div className='absolute'>
+      <img src='https://media2.giphy.com/media/3o7bu9i039LhWBXH1u/giphy.gif'></img>
+      </div>
       </table>
       <div>
         <br></br>
@@ -131,7 +136,6 @@ function CrudComponent() {
         <br></br>
         <button onClick={addProduct}>{isEditing ? 'Actualizar ^^' : 'Agregar^^'}</button>
       </div>
-      <img src='https://pngimg.es/d/cat_PNG50512.png'></img>
     </div>
   );
 }

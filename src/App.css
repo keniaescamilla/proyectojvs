@@ -161,7 +161,19 @@ tbody{
   text-align: center;
 }
 img{
-  height: 400px;
-  
+  height: 400px; 
 
+}div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 300px;
+ bottom: 30px;
+  width: 200px;
+  height: 100px;
 }
